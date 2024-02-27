@@ -1,71 +1,56 @@
 import time
 import random
 
-# 2024.02.21.
-
 # List of animal names
 animal_names = ['cat', 'dog', 'elephant', 'lion', 'tiger', 'bear', 'fox', 'wolf', 'rabbit', 'deer']
 
 # https://docs.python.org/3/library/functions.html#open
 # Meaning
-# 'r'
-# open for reading (default)
-
-# 'w'
-# open for writing, truncating the file first
-
-# 'x'
-# open for exclusive creation, failing if the file already exists
-
-# 'a'
-# open for writing, appending to the end of file if it exists
-
-# 'b'
-# binary mode
-
-# 't'
-# text mode (default)
-
-# '+'
-# open for updating (reading and writing)
+# 'r' - open for reading (default)
+# 'w' - open for writing, truncating the file first
+# 'x' - open for exclusive creation, failing if the file already exists
+# 'a' - open for writing, appending to the end of file if it exists
+# 'b' - binary mode
+# 't' - text mode (default)
+# '+' - open for updating (reading and writing)
 
 # Open the file using 'with' to ensure it's closed properly
 with open('message.txt', 'w') as fileHandle:
-    for index in range(0, 10):
-        value = random.randint(0, 100)
+    for index in range(0,  10):
+        value = random.randint(0,  100)
         animal = random.choice(animal_names)
 
-        # F-string használata: Az f-string használatával egyszerűbb és olvashatóbb a szöveg formázása.
+        # Using f-string for easier and more readable text formatting.
         text = f'Number: {value}, Animal: {animal}'
         fileHandle.write(text + '\n')
 
-        # A {} kapcsos zárójelek közé helyezett változók neveit a f-strings (f'' vagy f"") segítségével helyettesíthetjük be a szövegbe. Az f a string előtti karakter megjelölése, ami a függőleges vonal (|) mellett az angol QWERTY-billentyűzeten található. Az így formázott stringek lehetővé teszik a változók vagy kifejezések közvetlenül a stringbe való beágyazását. A példában a text változót helyettesítjük be a stringbe.
+        # The variables placed inside the curly braces {} in the f-string (f'' or f"") can be replaced in the text using f-strings. The 'f' character before the string indicates this, allowing for the direct embedding of variables or expressions into the string. The formatted strings enable the direct embedding of variables or expressions into the string. In this example, the 'text' variable is replaced in the string.
         print(f'Writing \'{text}\' to file')
 
         time.sleep(0.5)
 
-# Az if __name__ == '__main__': kifejezés a Pythonban használt szokásos módszer, amely lehetővé teszi azt, hogy a kód egyes részei csak akkor futnak le, ha a fájlt közvetlenül futtatod, és nem importálod egy másik Python fájlból. Amikor egy Python fájlt importálsz egy másik fájlba, akkor a __name__ változó értéke az importált fájl neve lesz. Ha a fájlt közvetlenül futtatod, akkor a __name__ változó értéke '__main__'.
+# The 'if __name__ == '__main__':' expression is a common practice in Python, which allows certain parts of the code to run only when the file is run directly, and not imported from another Python file. When a Python file is imported from another file, the value of the '__name__' variable is the name of the imported file. When the file is run directly, the value of the '__name__' variable is '__main__'.
 if __name__ == '__main__':
 
-    # print(animal_names[0])  # Kiírja a 'cat' nevű állatot, mivel az első elem a listában
-    # print(animal_names[animal_names.index('cat')])  # Kiírja a 'cat' nevű állatot, ha isméd a listában lévő indexet
-            
-    # Egyedi állatok kiírása:
+    # Print the 'cat' animal, as it is the first element in the list
+    # Print the 'cat' animal if you know the index in the list
+             
+    # Printing unique animals:
     print('Unique animals:')
     unique_animals = set(animal_names)
     for animal in unique_animals:
         print(animal)
 
-    # Különböző állatok száma:
+    # Number of different animals:
     unique_animals = set(animal_names)
     print(f"There are {len(unique_animals)} unique animals.")
 
-    # Véletlenszerű állat kiírása:
+    # Printing a random animal:
     random_animal = random.choice(animal_names)
     print(f"Random animal: {random_animal}")
 
-    # Állatok száma:
+    # Number of animals:
     print(f"There are {len(animal_names)} animals in the list.")
 
-    # Állatok listázása:
+    # Listing animals:
     print("\n".join(animal_names))

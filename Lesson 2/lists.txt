@@ -1,0 +1,31 @@
+\t » tabulator
+\n » newline
+\r » carriage return
+
+A for loop iterates from 0 to 100 in steps of 10, and in each iteration, it prints the text "progress {x}%", where {x} represents the current iteration value. The end='\r' parameter means that instead of printing a new line, the cursor moves back to the beginning of the line, so the message gets updated in place, and messages don't accumulate. The flush=True parameter ensures that messages appear immediately on the console without waiting for the standard output buffer to flush.
+
+import time
+for x in range(0, 100, 10):
+    print(input, end='\r', flush=True)
+    time.sleep(0.3)
+
+fruits = ['apple', 'orange', 'cherry', 'strawberry']
+
+Extract all elements.
+print(fruits)
+
+Extract all elements after 'apple'.
+print(fruits[1:])
+
+Extract elements between 'orange' and 'strawberry'.
+print(fruits[2:3])
+
+The -1 index refers to the last element in the list.
+print(fruits[-1:])
+
+We can extract the last x elements.
+print(fruits[-2:])
+
+If we want to print the elements in reverse order, we need to display the list in reversed order. This can be done using the reversed() function or with the [::-1] syntax. The [::-1] syntax reverses the list and returns the reversed list.
+print(list(reversed(fruits)))
+print(fruits[::-1])
